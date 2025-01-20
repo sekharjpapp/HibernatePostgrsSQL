@@ -11,10 +11,13 @@ public class HibernatePostgreApp {
 
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
-        String version = (String) session.createNativeQuery("select version()").getSingleResult();
-        System.out.println(version);
+        /*String version = (String) session.createNativeQuery("select version()").getSingleResult();
+        System.out.println(version);*/
 
         Student student = new Student(1, "Tom");
+        session.beginTransaction().begin();
+        session.persist(student);
+        session.beginTransaction().commit();
         System.out.println(student);
     }
 }
