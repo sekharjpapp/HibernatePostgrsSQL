@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernatedb</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">sekhar</property>
+
+        <!-- Connection pool size -->
+        <property name="hibernate.connection.pool_size">1</property>
+
+        <!-- Schema export tool -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+        <!-- SQL display -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Caching (optional) -->
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+    </session-factory>
+</hibernate-configuration>
