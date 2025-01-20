@@ -4,6 +4,7 @@ import com.pixel.model.Student;
 import com.pixel.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 
 public class HibernatePostgreApp {
@@ -13,11 +14,13 @@ public class HibernatePostgreApp {
         Session session = sessionFactory.openSession();
         /*String version = (String) session.createNativeQuery("select version()").getSingleResult();
         System.out.println(version);*/
-
-        Student student = new Student(1, "Tom");
-        session.beginTransaction().begin();
+        Transaction tx = session.beginTransaction();
+        Student student = new Student();
+        student.setId(1);
+        student.setName("Tom");
         session.persist(student);
-        session.beginTransaction().commit();
+        tx.commit();
+        session.close();
         System.out.println(student);
     }
 }

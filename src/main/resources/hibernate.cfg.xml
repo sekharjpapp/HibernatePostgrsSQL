@@ -15,7 +15,7 @@
         <property name="hibernate.connection.pool_size">1</property>
 
         <!-- Schema export tool -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- SQL display -->
         <property name="hibernate.show_sql">true</property>
@@ -23,5 +23,6 @@
 
         <!-- Caching (optional) -->
         <property name="hibernate.cache.use_second_level_cache">false</property>
+        <mapping resource="student.hbm.xml" />
     </session-factory>
 </hibernate-configuration>
